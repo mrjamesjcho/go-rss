@@ -7,5 +7,5 @@ func handlerReadiness(w http.ResponseWriter, r *http.Request) {
 	// This could involve checking database connections, external services, etc.
 	// For simplicity, we will just return a 200 OK status
 
-	jsonResponse(w, http.StatusOK, struct{}{})
+	respondWithJson(w, http.StatusOK, struct{}{})
 }
