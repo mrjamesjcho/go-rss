@@ -46,7 +46,7 @@ func databaseFeedToFeed(dbFeed database.Feed) Feed {
 }
 
 func databaseFeedsToFeeds(dbFeeds []database.Feed) []Feed {
-	var feeds []Feed
+	feeds := []Feed{}
 	for _, dbFeed := range dbFeeds {
 		feeds = append(feeds, databaseFeedToFeed(dbFeed))
 	}
@@ -72,7 +72,7 @@ func databaseFeedFollowToFeedFollow(dbFeedFollow database.FeedFollow) FeedFollow
 }
 
 func databaseFeedFollowsToFeedFollows(dbFeedFollows []database.FeedFollow) []FeedFollow {
-	var feedFollows []FeedFollow
+	feedFollows := []FeedFollow{}
 	for _, dbFeedFollow := range dbFeedFollows {
 		feedFollows = append(feedFollows, databaseFeedFollowToFeedFollow(dbFeedFollow))
 	}
