@@ -34,3 +34,13 @@ func (apiCfg *apiConfig) handlerCreateFeed(w http.ResponseWriter, r *http.Reques
 
 	respondWithJson(w, http.StatusCreated, databaseFeedToFeed(feed))
 }
+
+func (apiCfg *apiConfig) handlerGetFeeds(w http.ResponseWriter, r *http.Request) {
+	feeds, err := apiCfg.DB.GetFeeds(r.Context())
+	if err != nil {
+		respondWithError(w, http.StatusInternalServerError, fmt.Sprintf("Failed to get feeds: %v", err.Error()))
+		return
+	}
+
+	respondWithJson(w, http.StatusOK, databaseFeedsToFeeds(feeds))
+}
